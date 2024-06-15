@@ -22,16 +22,12 @@ public class Topico {
 
     private String titulo;
     private String mensagem;
-    private LocalDateTime dataCriacao;
-    private String status;
     private String autor;
     private String curso;
 
     public Topico(DadosCadastroTopico dados){
         this.titulo = dados.titulo();
         this.mensagem = dados.mensagem();
-        this.dataCriacao = dados.dataCriacao();
-        this.status = dados.status();
         this.autor = dados.autor();
         this.curso = dados.curso();
     }
