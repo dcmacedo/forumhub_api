@@ -27,4 +27,22 @@ public class Topico {
     private String autor;
     private String curso;
     private String resposta;
+
+    public void atualizarInformacaoes(DadosAtualizacaoTopico dados) {
+        if (dados.titulo() != null) {
+            this.titulo = dados.titulo();
+        }
+
+        if (dados.mensagem() != null) {
+            this.mensagem = dados.mensagem();
+        }
+
+        if (dados.autor() != null) {
+            this.autor = dados.autor();
+        }
+
+        if (dados.curso() != null) {
+            this.curso = dados.curso();
+        }
+    }
 }
