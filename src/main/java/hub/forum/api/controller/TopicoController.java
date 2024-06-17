@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.time.LocalDateTime;
+
 @RestController
 @RequestMapping("topicos")
 public class TopicoController {
@@ -24,7 +26,8 @@ public class TopicoController {
     @PostMapping
     @Transactional
     public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroTopico dados, UriComponentsBuilder uriBuilder){
-        var topico = new Topico(dados);
+        System.out.println(dados);
+        var topico = new Topico(null, dados.titulo(), dados.mensagem(), LocalDateTime.now(), true, dados.autor(), dados.curso(),null);
         repository.save(topico);
 
         var uri = uriBuilder.path("/topicos/{id}").buildAndExpand(topico.getId()).toUri();

@@ -22,13 +22,9 @@ public class Topico {
 
     private String titulo;
     private String mensagem;
+    private LocalDateTime data_criacao;
+    private boolean status;
     private String autor;
     private String curso;
-
-    public Topico(DadosCadastroTopico dados){
-        this.titulo = dados.titulo();
-        this.mensagem = dados.mensagem();
-        this.autor = dados.autor();
-        this.curso = dados.curso();
-    }
+    private String resposta;
 }
