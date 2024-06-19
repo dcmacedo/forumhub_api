@@ -1,5 +1,6 @@
 package hub.forum.api.controller;
 
+import hub.forum.api.domain.ValidacaoException;
 import hub.forum.api.domain.topico.DadosCadastroTopico;
 import hub.forum.api.domain.topico.DadosDetalhamentoTopico;
 import hub.forum.api.domain.topico.DadosAtualizacaoTopico;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("topicos")
@@ -27,16 +29,18 @@ public class TopicoController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroTopico dados, UriComponentsBuilder uriBuilder){
-        var topico = new Topico(null,
-                dados.titulo(),
-                dados.mensagem(),
-                LocalDateTime.now(),
-                true,
-                dados.autor(),
-                dados.curso(),
-                null);
-        repository.save(topico);
+    public ResponseEntity cadastrar(@RequestBody @Valid DadosCadastroTopico dados,
+                                    UriComponentsBuilder uriBuilder){
+        var topico = new Topico(null, dados.titulo(), dados.mensagem(), LocalDateTime.now(),
+                true, dados.autor(), dados.curso(),null);
+
+        Optional<Topico> optionalTopico = repository.findByTituloAndMensagem(dados.titulo(), dados.mensagem());
+
+        if (optionalTopico.isPresent()) {
+            throw new ValidacaoException("Não é possivel registrar um topico com o mesmo titulo e mensagem");
+        } else {
+            repository.save(topico);
+        }
 
         var uri = uriBuilder.path("/topicos/{id}").buildAndExpand(topico.getId()).toUri();
 
