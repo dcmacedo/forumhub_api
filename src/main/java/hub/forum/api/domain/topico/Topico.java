@@ -1,16 +1,19 @@
 package hub.forum.api.domain.topico;
 
+import hub.forum.api.domain.curso.Curso;
+import hub.forum.api.domain.resposta.Resposta;
+import hub.forum.api.domain.usuario.Usuario;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Table(name = "topicos")
 @Entity(name = "Topico")
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -19,30 +22,20 @@ public class Topico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String titulo;
     private String mensagem;
     private LocalDateTime data_criacao;
-    private boolean status;
-    private String autor;
-    private String curso;
-    private String resposta;
+    private Boolean status;
 
-    public void atualizarInformacaoes(DadosAtualizacaoTopico dados) {
-        if (dados.titulo() != null) {
-            this.titulo = dados.titulo();
-        }
+    @ManyToOne
+    @JoinColumn(name = "autor_id")
+    private Usuario autor;
 
-        if (dados.mensagem() != null) {
-            this.mensagem = dados.mensagem();
-        }
+    @ManyToOne
+    @JoinColumn(name = "curso_id")
+    private Curso curso;
 
-        if (dados.autor() != null) {
-            this.autor = dados.autor();
-        }
+    @OneToMany(mappedBy = "topico")
+    private List<Resposta> resposta = new ArrayList<>();
 
-        if (dados.curso() != null) {
-            this.curso = dados.curso();
-        }
-    }
 }

@@ -1,9 +1,9 @@
 package hub.forum.api.controller;
 
 import hub.forum.api.domain.usuario.Usuario;
-import hub.forum.api.infra.security.DadosTokenJWT;
-import hub.forum.api.infra.security.TokenService;
-import hub.forum.api.domain.usuario.DadosAutenticacao;
+import hub.forum.api.infra.security.authentication.DadosTokenJWT;
+import hub.forum.api.infra.security.authentication.TokenService;
+import hub.forum.api.infra.security.authentication.DadosAutenticacao;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +28,6 @@ public class AuntenticacaoController {
     public ResponseEntity efetuarLogin(@RequestBody @Valid DadosAutenticacao dados){
         var authenticationToken = new UsernamePasswordAuthenticationToken(dados.login(),dados.senha());
         var authentication = manager.authenticate(authenticationToken);
-
         var tokenJWT = tokenService.gerarToken((Usuario) authentication.getPrincipal());
 
         return ResponseEntity.ok(new DadosTokenJWT(tokenJWT));

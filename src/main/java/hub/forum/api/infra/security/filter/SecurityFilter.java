@@ -1,6 +1,7 @@
-package hub.forum.api.infra.security;
+package hub.forum.api.infra.security.filter;
 
 import hub.forum.api.domain.usuario.UsuarioRepository;
+import hub.forum.api.infra.security.authentication.TokenService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

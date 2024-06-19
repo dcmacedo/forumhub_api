@@ -1,4 +1,4 @@
-package hub.forum.api.infra.security;
+package hub.forum.api.infra.security.authentication;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;

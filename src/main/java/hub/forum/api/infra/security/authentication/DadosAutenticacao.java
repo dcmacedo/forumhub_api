@@ -1,4 +1,4 @@
-package hub.forum.api.domain.usuario;
+package hub.forum.api.infra.security.authentication;
 
 public record DadosAutenticacao(String login, String senha) {
 }

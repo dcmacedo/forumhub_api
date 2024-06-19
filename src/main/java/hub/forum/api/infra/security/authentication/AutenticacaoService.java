@@ -1,5 +1,6 @@
-package hub.forum.api.domain.usuario;
+package hub.forum.api.infra.security.authentication;
 
+import hub.forum.api.domain.usuario.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
