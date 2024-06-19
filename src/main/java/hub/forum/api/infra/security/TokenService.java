@@ -23,6 +23,7 @@ public class TokenService {
         return JWT.create()
                 .withIssuer("API Forum.hub")
                 .withSubject(usuario.getUsername())
+                .withClaim("id", usuario.getId())
                 .withExpiresAt(dataExpiracao())
                 .sign(algoritmo);
     }
