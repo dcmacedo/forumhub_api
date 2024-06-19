@@ -52,8 +52,8 @@ Para executar o projeto, você precisará ter instalado:
 
 1. Clone o repositório para sua máquina local:
    ```bash
-   git clone https://github.com/dcmacedo/forumhub.git
-   cd forumhub
+   git clone https://github.com/dcmacedo/forumhub_api.git
+   cd forumhub_api
    ```
 
 2. Configure as credenciais do banco de dados no arquivo `src/main/resources/application.properties`:
