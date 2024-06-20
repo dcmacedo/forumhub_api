@@ -32,7 +32,7 @@ A API FórumHub permite as seguintes operações:
 
 ## Diagrama do Banco de Dados
 
-![Diagrama do Banco de Dados](src/main/resources/DiagramaBancoForumHub.png)
+![Diagrama do Banco de Dados](src/main/resources/images/DiagramaBancoForumHub.png)
 
 ## Pré-requisitos
 
