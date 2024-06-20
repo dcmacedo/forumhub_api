@@ -3,7 +3,11 @@
 ## Descrição
 
 <p align="justify">
-O FórumHub é uma API REST desenvolvida em Java utilizando Spring Boot, que simula um fórum de discussão. Nesta API, os usuários podem criar, visualizar, atualizar e deletar tópicos de discussão, perfis, respostas, cursos e usuários. A partir de agora, apenas usuários autenticados podem interagir com a API. Este projeto é parte do desafio Challenge Back End.
+O FórumHub é uma API REST desenvolvida em Java utilizando Spring Boot, 
+que simula um fórum de discussão. Nesta API, os usuários podem criar, 
+visualizar, atualizar e deletar tópicos de discussão, perfis, respostas, 
+cursos e usuários. A partir de agora, apenas usuários autenticados podem 
+interagir com a API. Este projeto é parte do desafio Challenge Back End.
 </p>
 
 ## Funcionalidades
@@ -25,6 +29,10 @@ A API FórumHub permite as seguintes operações:
 - **auth0:** Serviço de gestão de identidade e autenticação usada para integrar e gerenciar as credenciais dos usuários.
 - **Spring Doc:** Utilizado para geração automática de documentação da API.
 - **MySQL:** Banco de dados relacional para armazenamento dos dados.
+
+## Diagrama do Banco de Dados
+
+![Diagrama do Banco de Dados](src/main/resources/DiagramaBancoForumHub.svg)
 
 ## Pré-requisitos
 
@@ -82,6 +90,8 @@ Para executar o projeto, você precisará ter instalado:
 4. Acesse a aplicação em `http://localhost:8080`.
 
 5. A documentação da API gerada pelo Spring Doc pode ser acessada em `http://localhost:8080/swagger-ui.html`.
+
+![Spring Doc](src/main/resoures/images/SpringDoc.jpg)
 
 ## Endpoints da API(amostra)
 
