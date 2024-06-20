@@ -1,6 +1,7 @@
 package hub.forum.api.controller;
 
 import hub.forum.api.domain.usuario.DadosCadastroUsuario;
+import hub.forum.api.domain.usuario.Usuario;
 import hub.forum.api.domain.usuario.UsuarioService;
 import hub.forum.api.domain.usuario.DadosDetalhamentoUsuario;
 import jakarta.validation.Valid;
@@ -11,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("usuarios")
@@ -48,5 +51,11 @@ public class UsuarioController {
     public ResponseEntity deletar(@PathVariable Long id){
         usuarioService.deletar(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<DadosDetalhamentoUsuario> detalhar(@PathVariable Long id){
+        Optional<DadosDetalhamentoUsuario> usuario = usuarioService.detalhar(id);
+        return usuario.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 }

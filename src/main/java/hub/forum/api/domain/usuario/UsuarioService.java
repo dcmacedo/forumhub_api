@@ -77,4 +77,18 @@ public class UsuarioService {
 
         repository.save(usuario);
     }
+
+    public Optional<DadosDetalhamentoUsuario> detalhar(Long id) {
+        Optional<Usuario> optionalUser = repository.findById(id)
+                .filter(Usuario::getStatus);
+        return optionalUser.map(this::mapToDetalhamentoDto);
+    }
+
+    private DadosDetalhamentoUsuario mapToDetalhamentoDto(Usuario usuario) {
+        return new DadosDetalhamentoUsuario(
+                usuario.getId(),
+                usuario.getNome(),
+                usuario.getLogin(),
+                usuario.getStatus());
+    }
 }
