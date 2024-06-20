@@ -91,7 +91,7 @@ Para executar o projeto, você precisará ter instalado:
 
 5. A documentação da API gerada pelo Spring Doc pode ser acessada em `http://localhost:8080/swagger-ui.html`.
 
-![Spring Doc](src/main/resoures/images/SpringDoc.png)
+![Spring Doc](src/main/resources/images/SpringDoc.png)
 
 ## Endpoints da API(amostra)
 
