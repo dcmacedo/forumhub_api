@@ -78,6 +78,14 @@ public class UsuarioService {
         repository.save(usuario);
     }
 
+    public Usuario findByLogin(String login) {
+        Usuario usuario = (Usuario) repository.findByLogin(login);
+        if (usuario == null) {
+            throw new IllegalArgumentException("Usuário não encontrado com login: " + login);
+        }
+        return usuario;
+    }
+
     public Optional<DadosDetalhamentoUsuario> detalhar(Long id) {
         Optional<Usuario> optionalUser = repository.findById(id)
                 .filter(Usuario::getStatus);
