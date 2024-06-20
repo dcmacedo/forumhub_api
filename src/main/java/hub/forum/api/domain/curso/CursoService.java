@@ -53,4 +53,8 @@ public class CursoService {
     public boolean existsById(Long cursoId) {
         return repository.existsById(cursoId);
     }
+
+    public Curso buscarCurso(String nomeCurso){
+        return repository.localizarCurso(nomeCurso);
+    }
 }

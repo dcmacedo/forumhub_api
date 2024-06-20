@@ -1,5 +1,6 @@
 package hub.forum.api.domain.topico;
 
+import hub.forum.api.domain.ValidacaoException;
 import hub.forum.api.domain.curso.Curso;
 import hub.forum.api.domain.curso.CursoService;
 import hub.forum.api.domain.curso.DadosDetalhamentoCurso;
@@ -40,21 +41,20 @@ public class TopicoService {
 
         Usuario usuario = usuarioService.findByLogin(usuarioLogado);
 
-        if (repository.existsByTituloAndMensagemAndCursoId(dados.titulo(), dados.mensagem(), dados.curso().id())){
+        if (repository.existsByTituloAndMensagem(dados.titulo(), dados.mensagem())){
             throw new IllegalArgumentException("Combinação de Título, Mensagem e Curso já existe.");
         }
 
-        Long cursoId = dados.curso().id();
-
-        if (cursoId == null || !cursoService.existsById(cursoId)){
-            throw new IllegalArgumentException("O ID do Curso não é válido");
+        var curso = cursoService.buscarCurso(dados.nomeCurso());
+        if (curso == null) {
+            throw new ValidacaoException(" O Curso nao consta na nossa lista de cursos cadastrado ");
         }
 
         Topico topico = new Topico();
         topico.setTitulo(dados.titulo());
         topico.setMensagem(dados.mensagem());
         topico.setAutor(usuario);
-        topico.setCurso(new Curso(cursoId, dados.curso().nome(), dados.curso().categoria()));
+        topico.setCurso(curso);
         topico.setData_criacao(LocalDateTime.now());
         topico.setStatus(true);
 

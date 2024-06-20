@@ -91,7 +91,7 @@ public class TopicoController {
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity excluirTopico(@PathVariable Long id){
-        topicoService.deletar(id); // Call the method to inactivate the topic
+        topicoService.deletar(id);
         return ResponseEntity.noContent().build();
     }
 

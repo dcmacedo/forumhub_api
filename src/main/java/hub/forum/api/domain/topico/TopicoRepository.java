@@ -21,7 +21,7 @@ public interface TopicoRepository extends JpaRepository<Topico, Long> {
     @Query("SELECT t FROM Topico t ORDER BY t.data_criacao ASC")
     Page<Topico> findAllByOrderByDataCriacaoAsc(Pageable pageable);
 
-    boolean existsByTituloAndMensagemAndCursoId(String titulo, String mensagem, Long id);
+    boolean existsByTituloAndMensagem(String titulo, String mensagem);
 
     Page<Topico> findByStatusTrue(Pageable pageable);
 
