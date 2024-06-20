@@ -1,7 +1,6 @@
 package hub.forum.api.domain.curso;
 
 
-import hub.forum.api.domain.usuario.DadosDetalhamentoUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

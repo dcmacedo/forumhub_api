@@ -21,7 +21,7 @@ public class Resposta {
     private Long id;
     private String mensagem;
     private LocalDateTime data_criacao;
-    private boolean solucao;
+    private Boolean solucao;
 
     @ManyToOne
     @JoinColumn(name = "autor_id")
