@@ -1,9 +1,9 @@
 package hub.forum.api.controller;
 
 import hub.forum.api.domain.usuario.Usuario;
+import hub.forum.api.infra.security.authentication.DadosAutenticacao;
 import hub.forum.api.infra.security.authentication.DadosTokenJWT;
 import hub.forum.api.infra.security.authentication.TokenService;
-import hub.forum.api.infra.security.authentication.DadosAutenticacao;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

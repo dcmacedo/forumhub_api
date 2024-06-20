@@ -1,6 +1,5 @@
 package hub.forum.api.controller;
 
-import hub.forum.api.domain.curso.CursoRepository;
 import hub.forum.api.domain.curso.CursoService;
 import hub.forum.api.domain.curso.DadosCadastroCurso;
 import hub.forum.api.domain.curso.DadosDetalhamentoCurso;
