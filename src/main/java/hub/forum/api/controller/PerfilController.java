@@ -3,6 +3,7 @@ package hub.forum.api.controller;
 import hub.forum.api.domain.perfil.DadosCadastroPerfil;
 import hub.forum.api.domain.perfil.DadosDetalhamentoPerfil;
 import hub.forum.api.domain.perfil.PerfilService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -14,6 +15,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 @RestController
 @RequestMapping("perfis")
+@SecurityRequirement(name = "bearer-key")
 public class PerfilController {
 
     @Autowired

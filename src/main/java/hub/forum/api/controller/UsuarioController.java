@@ -1,9 +1,9 @@
 package hub.forum.api.controller;
 
 import hub.forum.api.domain.usuario.DadosCadastroUsuario;
-import hub.forum.api.domain.usuario.Usuario;
-import hub.forum.api.domain.usuario.UsuarioService;
 import hub.forum.api.domain.usuario.DadosDetalhamentoUsuario;
+import hub.forum.api.domain.usuario.UsuarioService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -40,6 +40,7 @@ public class UsuarioController {
     }
 
     @PutMapping("/{id}")
+    @SecurityRequirement(name = "bearer-key")
     @Transactional
     public ResponseEntity atualizar(@PathVariable Long id, @RequestBody DadosDetalhamentoUsuario dados){
         usuarioService.atualizar(id, dados);
@@ -47,6 +48,7 @@ public class UsuarioController {
     }
 
     @DeleteMapping("/{id}")
+    @SecurityRequirement(name = "bearer-key")
     @Transactional
     public ResponseEntity deletar(@PathVariable Long id){
         usuarioService.deletar(id);

@@ -1,10 +1,10 @@
 package hub.forum.api.controller;
 
 import hub.forum.api.domain.resposta.DadosCadastroResposta;
-import hub.forum.api.domain.resposta.DadosDetalhamentoResposta;
 import hub.forum.api.domain.resposta.RespostaService;
 import hub.forum.api.domain.topico.*;
 import hub.forum.api.domain.usuario.Usuario;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -22,6 +22,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("topicos")
+@SecurityRequirement(name = "bearer-key")
 public class TopicoController {
 
     @Autowired
