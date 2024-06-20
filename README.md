@@ -32,7 +32,7 @@ A API FórumHub permite as seguintes operações:
 
 ## Diagrama do Banco de Dados
 
-![Diagrama do Banco de Dados](src/main/resources/DiagramaBancoForumHub.svg)
+![Diagrama do Banco de Dados](src/main/resources/DiagramaBancoForumHub.png)
 
 ## Pré-requisitos
 
@@ -91,7 +91,7 @@ Para executar o projeto, você precisará ter instalado:
 
 5. A documentação da API gerada pelo Spring Doc pode ser acessada em `http://localhost:8080/swagger-ui.html`.
 
-![Spring Doc](src/main/resoures/images/SpringDoc.jpg)
+![Spring Doc](src/main/resoures/images/SpringDoc.png)
 
 ## Endpoints da API(amostra)
 
